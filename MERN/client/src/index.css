@@ -1,0 +1,87 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /* default theme */
+    :root {
+        /* --var-name: rgb value */
+        --color-primary: 0, 0, 0;
+        --color-secondary: 0, 48, 73;
+        --color-muted: 255, 255, 255;
+        --color-accent: 24, 25, 31;
+
+        --bg-primary: 10, 20, 47;
+        /* --bg-secondary: 253, 240, 213;  orignal yellowish color provided by  design team*/
+        --bg-secondary: 255, 251, 235;
+        /*taiwinds bg-yellow-50*/
+        --bg-muted: 255, 255, 255;
+    }
+
+    /* custom themes
+        if you apply this class on any element than these property will be used for that
+        and for gloab just apply this class to body tag
+    */
+    .theme-dark {
+        /* --var-name: rgb value */
+        --color-primary: 0, 0, 0;
+        --color-secondary: 0, 48, 73;
+        --color-muted: 255, 255, 255;
+        --color-accent: 24, 25, 31;
+
+        --bg-primary: 10, 20, 47;
+        --bg-secondary: 253, 240, 213;
+        --bg-muted: 255, 255, 255;
+    }
+
+    /* add the font facecs here */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.smol-transitions>* {
+    --transition-property: transform;
+
+    transition: var(--transition-property) ease-in-out;
+}
+
+.zoom>* {
+    transition-duration: 0.2s;
+}
+
+.zoom:hover>* {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    transition: all 0.3s ease;
+    opacity: 0;
+    background-color: #7878786b;
+}
+
+.overlay-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-container:hover .overlayBottom {
+    height: 100%;
+}
+
+.overlayBottom {
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #7878786b;
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+    .smol-transitions > * {
+        --transition-duration: 0.01ms;
+    }
+} */
